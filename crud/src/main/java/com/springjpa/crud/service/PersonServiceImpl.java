@@ -1,7 +1,7 @@
 package com.springjpa.crud.service;
 
 import com.springjpa.crud.repository.PersonRepository;
-import com.springjpa.crud.entity.Person;
+import com.springjpa.crud.entity.Employe;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,12 +17,12 @@ public class PersonServiceImpl implements PersonService {
 
 
     @Override
-    public List<Person> listAll() {
+    public List<Employe> listAll() {
         return repository.findAll();
     }
 
     @Override
-    public Person personByid(Integer id){
+    public Employe personByid(Integer id){
         try {
             return repository.findById(id).get();
         }catch (NoSuchElementException e){
@@ -32,12 +32,12 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public boolean personSave(List<Person> person){
+    public boolean personSave(List<Employe> employes){
 
-        if (person == null) {
+        if (employes == null) {
             return false;
         } else {
-            repository.saveAll(person);
+            repository.saveAll(employes);
             return true;
         }
     }
